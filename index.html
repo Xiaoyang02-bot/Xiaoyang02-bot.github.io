@@ -19,6 +19,9 @@
     --rule: #CBD3E0;
     --serif: "Songti SC", "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", Georgia, serif;
     --sans: -apple-system, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* 英文内容：西文字体排在前面，避免中文字体把 ’ 之类的标点渲染成全角 */
+    --sans-en: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+    --serif-en: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", "SimSun", serif;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -66,6 +69,8 @@
     padding: 2px 10px; cursor: pointer;
   }
   .lang-switch button[aria-pressed="true"] { color: var(--ink); border-color: var(--rule); background: var(--paper); }
+  [lang="en"] { font-family: var(--sans-en); }
+  h2 [lang="en"] { font-family: var(--serif-en); }
   body[data-lang="zh"] [lang="en"] { display: none; }
   body[data-lang="en"] [lang="zh"] { display: none; }
 
